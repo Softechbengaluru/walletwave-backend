@@ -1,0 +1,13 @@
+{
+    "routes": [
+      {
+        "method": "POST",
+        "path": "/auth/customer-login",
+        "handler": "Customer.login",
+        "config": {
+          "policies": []
+        }
+      }
+    ]
+  }
+  
