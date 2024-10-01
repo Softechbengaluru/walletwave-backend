@@ -368,6 +368,7 @@ export interface ApiCustomerCustomer extends Schema.CollectionType {
     singularName: 'customer';
     pluralName: 'customers';
     displayName: 'Customer';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -375,6 +376,8 @@ export interface ApiCustomerCustomer extends Schema.CollectionType {
   attributes: {
     phoneNumber: Attribute.String & Attribute.Unique;
     pin: Attribute.String;
+    price: Attribute.Float;
+    username: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

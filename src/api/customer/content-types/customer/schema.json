@@ -4,7 +4,8 @@
   "info": {
     "singularName": "customer",
     "pluralName": "customers",
-    "displayName": "Customer"
+    "displayName": "Customer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,12 @@
       "unique": true
     },
     "pin": {
+      "type": "string"
+    },
+    "price": {
+      "type": "float"
+    },
+    "username": {
       "type": "string"
     }
   }

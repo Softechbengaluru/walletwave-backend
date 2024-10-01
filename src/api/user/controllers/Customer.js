@@ -1,26 +1,22 @@
-'use strict';
-
-/**
- * A set of functions called "actions" for `customer`
- */
+// ./api/user/controllers/user.js
+"use strict";
 
 module.exports = {
-  async login(ctx) {
+  async customLogin(ctx) {
     const { phoneNumber, pin } = ctx.request.body;
 
     if (!phoneNumber || !pin) {
-      return ctx.badRequest('Phone number and PIN are required');
+      return ctx.badRequest("Phone number and PIN are required");
     }
 
-    const { error, customer, token } = await strapi.services['api::customer.login'].login({
-      phoneNumber,
-      pin,
-    });
+    const user = await strapi
+      .query("user", "users-permissions")
+      .findOne({ phoneNumber, pin });
 
-    if (error) {
-      return ctx.badRequest(error);
+    if (user) {
+      return ctx.send({ user });
+    } else {
+      return ctx.badRequest("Invalid phone number or PIN");
     }
-
-    ctx.send({ customer, token });
   },
 };
